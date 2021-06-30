@@ -1,0 +1,52 @@
+mat-card {
+  max-width: 250px;
+  margin: auto;
+  border-style: solid;
+  border-color: black;
+}
+
+.mat-card-image {
+  object-fit: cover;
+  height: 80%;
+  width: 97.5%;
+  margin-left: 1px;
+  background: white;
+  border-style: solid;
+  border-top: white;
+  border-color: goldenrod;
+}
+
+.mat-card-content {
+  background: lightgray;
+  color: black;
+  border-style: solid;
+  border-color: goldenrod;
+}
+
+.mat-card-avatar {
+  background-image: url(../../../assets/pokeball.png);
+  background-size: cover;
+  width: 30px;
+  height: 30px;
+  margin-left: 5px;
+  margin-top: 5px
+}
+
+.mat-card-title {
+  margin-top: 10px;
+  margin-left: 20px
+}
+
+.bg {
+  /* The image used */
+  background-image: url(../../../assets/background-details.png);
+
+  /* Full height */
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-top: 2%;
+}

@@ -1,0 +1,25 @@
+<div class="bg">
+  <mat-card style="background: gold">
+    <mat-card-header style="background: goldenrod">
+      <div mat-card-avatar style=""></div>
+      <mat-card-title>
+        {{ formatText(selectedPokemon.name) }}
+      </mat-card-title>
+    </mat-card-header>
+
+    <img mat-card-image src="{{ selectedPokemon.sprites.front_default }}">
+    <mat-card-content>
+      <div style="margin: 5px">
+        <b>Height:</b>  {{ selectedPokemon.height }}<br>
+        <b>Weight:</b>  {{ selectedPokemon.weight}}<br>
+        <b>Abilities:</b>
+      </div>
+      <div style="margin-bottom: 3px">
+        <ul>
+          <li *ngFor="let ability of selectedPokemon.abilities">{{ formatText(ability.ability.name) }}</li>
+        </ul>
+      </div>
+    </mat-card-content>
+
+  </mat-card>
+</div>
