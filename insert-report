@@ -7,5 +7,4 @@ BRANCH=$([ "$2" = "master" ] && echo "link:https://github.com/eminasljivic/pokea
 USER="link:https://github.com/$3[$3]"
 ROW="| $COMMIT | $BRANCH | $USER | $DATE | $REPORT
 
-
 sed -i "/\/\/ insert-new-line-please-here/a\\$ROW" ./reports.adoc
