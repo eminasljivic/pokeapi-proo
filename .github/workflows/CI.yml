@@ -22,6 +22,8 @@ jobs:
       - name: npm install
         run: npm i
       - run: npm run test
+        if: always()
+        continue-on-error: true
       - run: tree
       - name: Commit report files
         if: ${{ always() }}
