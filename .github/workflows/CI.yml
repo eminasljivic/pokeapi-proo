@@ -15,7 +15,6 @@ jobs:
           working-directory: ./pokeapi
     steps:
       - uses: actions/checkout@v2
-      - run: tree
       - name: Node ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
@@ -23,6 +22,7 @@ jobs:
       - name: npm install
         run: npm i
       - run: npm run test
+      - run: tree
       - name: Commit report files
         if: ${{ always() }}
         uses: actions/upload-artifact@v2
