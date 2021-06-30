@@ -1,0 +1,8 @@
+# Reports
+:nofooter:
+
+[options="header", cols="h,1,1,1,1"]
+|===
+| | Branch | User | Datum | Report
+// insert-new-line-please-here
+|===

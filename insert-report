@@ -1,0 +1,11 @@
+#!/bin/bash
+
+COMMIT="link:https://github.com/eminasljivic/pokeapi-proo/commit/$1[$1]"
+DATE=$(TZ=":Europe/Berlin" date +'%d.%m.%Y %H:%M')
+REPORT="link:coverage-report/$1/index.html[hier]"
+BRANCH=$([ "$2" = "master" ] && echo "link:https://github.com/eminasljivic/pokeapi-proo[$2]" || echo "link:https://github.com/eminasljivic/pokeapi-proo/tree/$2[$2]")
+USER="link:https://github.com/$3[$3]"
+ROW="| $COMMIT | $BRANCH | $USER | $DATE | $REPORT
+
+
+sed -i "/\/\/ insert-new-line-please-here/a\\$ROW" ./reports.adoc
