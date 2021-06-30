@@ -20,7 +20,6 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      - run: cd pokeapi
       - name: npm install
         run: npm i
       - run: npm run test
