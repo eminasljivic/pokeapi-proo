@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
     defaults:
         run:
@@ -23,3 +23,40 @@ jobs:
       - name: npm install
         run: npm i
       - run: npm run test
+      - name: Commit report files
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v2
+        with:
+          name: report-files
+          path: coverage/
+  push-reports:
+    runs-on: ubuntu-latest
+    needs:
+      - test
+    if: always()
+    continue-on-error: true
+    steps:
+      - name: Download report files
+        uses: actions/download-artifact@v2
+        with:
+          name: report-files
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          publish_dir: ./
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: reports
+          destination_dir: coverage-report/${{ github.sha }}
+      - uses: actions/checkout@v2
+        with:
+          ref: 'reports'
+      - name: Insert report into table
+        run: ./insert-report ${{ github.sha }} $([ -z "${{ github.head_ref }}" ] && echo "master" || echo "${{ github.head_ref }}") ${{ github.actor }}
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.PAT }}
+          publish_branch: reports
+          publish_dir: asciidoctor
+          destination_dir: asciidoctor
+          keep_files: true
