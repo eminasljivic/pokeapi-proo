@@ -15,10 +15,10 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: All things angular
-        uses: AhsanAyaz/angular-deploy-gh-pages-actions@[version]
+        uses: AhsanAyaz/angular-deploy-gh-pages-actions@v1.3.2
         with:
           github_access_token: ${{ secrets.ACCESS_TOKEN }}
           build_configuration: staging
           base_href: /pokeapi/
           deploy_branch: gh-pages 
-          angular_dist_build_folder: dist/my-project
+          angular_dist_build_folder: dist/pokeapi
