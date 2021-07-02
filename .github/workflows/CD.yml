@@ -14,11 +14,11 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - run: echo ${{ secrets.ACCESS_TOKEN }}
+      - run: echo ${{ secrets.TOKEN }}
       - name: All things angular
         uses: AhsanAyaz/angular-deploy-gh-pages-actions@v1.3.2
         with:
-          github_access_token: ${{ secrets.ACCESS_TOKEN }}
+          github_access_token: ${{ secrets.TOKEN }}
           build_configuration: production
           base_href: /pokeapi/
           deploy_branch: gh-pages 
