@@ -14,6 +14,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+      - run: echo ${{ secrets.ACCESS_TOKEN }}
       - name: All things angular
         uses: AhsanAyaz/angular-deploy-gh-pages-actions@v1.3.2
         with:
