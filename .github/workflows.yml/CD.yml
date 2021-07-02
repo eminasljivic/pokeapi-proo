@@ -1,0 +1,24 @@
+name: CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: All things angular
+        uses: AhsanAyaz/angular-deploy-gh-pages-actions@[version]
+        with:
+          github_access_token: ${{ secrets.ACCESS_TOKEN }}
+          build_configuration: staging
+          base_href: /pokeapi/
+          deploy_branch: gh-pages 
+          angular_dist_build_folder: dist/my-project
